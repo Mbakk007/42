@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 14:11:19 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/26 19:51:36 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/11/26 19:48:14 by ael-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 static char	*ft_free_strjoin(char *saved_line, char *tmp)
 {
@@ -46,7 +46,7 @@ static char	*read_line(int fd, char *saved_line)
 		tmp[bytes_read] = '\0';
 		saved_line = ft_free_strjoin(saved_line, tmp);
 		if (!saved_line)
-			return ((free(tmp)), NULL);
+			return (free(tmp), NULL);
 		if (ft_strchr(saved_line, '\n'))
 			break ;
 	}
@@ -112,17 +112,17 @@ static char	*remove_line_from(char *saved_line)
 
 char	*get_next_line(int fd)
 {
-	static char	*saved_line;
+	static char	*saved_line[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
-		return (free(saved_line), saved_line = NULL, NULL);
-	saved_line = read_line(fd, saved_line);
-	if (!saved_line)
-		return ((saved_line = NULL), NULL);
-	line = extract_from(saved_line);
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+		return (free(saved_line[fd]), saved_line[fd] = NULL, NULL);
+	saved_line[fd] = read_line(fd, saved_line[fd]);
+	if (!saved_line[fd])
+		return (saved_line[fd] = NULL, NULL);
+	line = extract_from(saved_line[fd]);
 	if (!line)
-		return (free(saved_line), saved_line = NULL, NULL);
-	saved_line = remove_line_from(saved_line);
+		return (free(saved_line[fd]), saved_line[fd] = NULL, NULL);
+	saved_line[fd] = remove_line_from(saved_line[fd]);
 	return (line);
 }
