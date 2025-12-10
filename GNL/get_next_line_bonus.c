@@ -115,7 +115,7 @@ char	*get_next_line(int fd)
 	static char	*saved_line[OPEN_MAX];
 	char		*line;
 
-	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || fd >= OPEN_MAX || BUFFER_SIZE <= 0)
 		return (free(saved_line[fd]), saved_line[fd] = NULL, NULL);
 	saved_line[fd] = read_line(fd, saved_line[fd]);
 	if (!saved_line[fd])

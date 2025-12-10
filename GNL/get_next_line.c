@@ -115,7 +115,7 @@ char	*get_next_line(int fd)
 	static char	*saved_line;
 	char		*line;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || read(fd, 0, 0) < 0)
+	if (fd < 0 || BUFFER_SIZE <= 0)
 		return (free(saved_line), saved_line = NULL, NULL);
 	saved_line = read_line(fd, saved_line);
 	if (!saved_line)
@@ -126,3 +126,25 @@ char	*get_next_line(int fd)
 	saved_line = remove_line_from(saved_line);
 	return (line);
 }
+
+/*
+#include <fcntl.h>
+#include <stdio.h>
+int main()
+{
+	int fd;
+	char *line;
+
+	fd = open("test.txt", O_RDONLY);
+
+	if (fd < 0)
+		return 1;
+	while ((line = get_next_line(fd)) != NULL)
+	{
+		printf("%s", line);
+		free(line);
+	}
+	close (fd);
+	return 0;
+}
+*/
