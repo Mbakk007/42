@@ -7,11 +7,15 @@ This repository contains my solutions to 42 School projects.  Each project is de
 
 ## 📚 Projects
 
-### Project 1: [Project Name]
-Brief description of what this project does and what concepts it covers.
+### Project 1: Libft
+Libft - A custom implementation of the C standard library, recreating essential functions (string, memory, character operations) plus additional utilities. This serves as a reusable library for all future 42 projects.
 
-### Project 2: [Project Name]
-Brief description of what this project does and what concepts it covers.
+### Project 2: ft_printf
+Recreation of printf. Handles variadic arguments and multiple format specifiers (%c, %s, %d, %i, %u, %x, %X, %p, %%).
+
+### Project 3: get_next_line
+A function that reads and returns a single line from a file descriptor, one at a time, regardless of line length.
+Implements static variables and buffer management to handle multiple FDs simultaneously with configurable BUFFER_SIZE.
 
 All projects follow the 42 School Norm.
 **Mbakk007**
