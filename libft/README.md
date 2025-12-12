@@ -4,9 +4,13 @@
 
 **Libft** is the first project at 42 School where you build your own C library from scratch. This project involves recreating essential functions from the C standard library.
 
+**This library has been extended to include:**
+- ✨ **ft_printf** - Custom implementation of printf with format specifiers
+- ✨ **get_next_line** - Line reading function from file descriptors (with bonus for multiple FDs)
+
 ## 🛠️ Functions Implemented
 
-### Part 1: Libc Functions
+### Libft Functions
 
 #### Character Checks & Conversions
 - `ft_isalpha` - Check if character is alphabetic
@@ -65,7 +69,31 @@ Functions for manipulating linked lists:
 - `ft_lstiter` - Iterate through list
 - `ft_lstmap` - Create new list with function applied
 
+### 🎨 ft_printf Functions
 
+Custom implementation of printf with variadic arguments:
+
+- `ft_printf` - Main printf function with format string parsing
+- Supported conversions:  `%c` `%s` `%p` `%d` `%i` `%u` `%x` `%X` `%%`
+- `ft_hex_size` - Convert unsigned int to hexadecimal
+- `ft_pointer_size` - Print pointer address in hex format
+- `ft_putchar_size` - Print character and return size
+- `ft_putnbr_size` - Print integer and return size
+- `ft_putstr_size` - Print string and return size
+- `ft_putunsigned_size` - Print unsigned integer and return size
+
+### 📖 get_next_line Functions
+
+Read lines from file descriptors one at a time:
+
+- `get_next_line` - Read a line from a file descriptor
+- `get_next_line_bonus` - Read from multiple FDs simultaneously
+
+**Features:**
+- Works with any `BUFFER_SIZE` (configurable at compile time)
+- Returns line with `\n` if present
+- Handles multiple file descriptors independently (bonus)
+- Proper memory management with no leaks
 
 
 

@@ -14,8 +14,16 @@ BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
             ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c \
             ft_lstmap.c
 
-OBJ     = $(SRC:.c=.o)
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
+PRINTF_SRC = ft_printf.c ft_hex_size.c ft_pointer_size.c \
+             ft_putchar_size.c ft_putnbr_size.c ft_putstr_size.c \
+             ft_putunsigned_size.c
+
+GNL_SRC = get_next_line.c
+
+GNL_BONUS_SRC = get_next_line_bonus.c
+
+OBJ     = $(SRC:.c=.o) $(PRINTF_SRC:.c=.o) $(GNL_SRC:.c=.o)
+BONUS_OBJ = $(BONUS_SRC:.c=.o) $(GNL_BONUS_SRC:.c=.o)
 HEADERS = libft.h
 
 all: $(NAME)
@@ -37,4 +45,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY:  all clean fclean re bonus
