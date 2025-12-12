@@ -25,5 +25,3 @@ The function can handle reading from files, standard input, or any valid file de
 **Mbakk007**
 - GitHub: [@Mbakk007](https://github.com/Mbakk007)
 - 42 Intra: ael-bakk
-
-*Made with ☕ and countless test files at 42 School*
