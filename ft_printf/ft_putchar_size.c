@@ -3,17 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_size.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ael-bakk <ael-bakk@student.42malaga.com>   +#+  +:+       +#+        */
+/*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/15 16:36:15 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/15 16:37:17 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/12/12 13:30:46 by ael-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int ft_putchar_size(int c)
+int	ft_putchar_size(int c)
 {
-    write(1, &c, 1);
-    return (1);
+	write(1, &c, 1);
+	return (1);
 }

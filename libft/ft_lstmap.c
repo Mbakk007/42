@@ -6,7 +6,7 @@
 /*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 17:32:21 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/11/15 10:15:39 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/12/12 13:21:10 by ael-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,18 @@ t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
 	t_list	*new_lst;
 	t_list	*new_node;
+	void	*content;
 
-	if (!lst || !f)
+	if (!lst || !f || !del)
 		return (NULL);
 	new_lst = NULL;
-	new_node = NULL;
 	while (lst)
 	{
-		new_node = ft_lstnew(f(lst->content));
+		content = f(lst->content);
+		new_node = ft_lstnew(content);
 		if (!new_node)
 		{
+			del(content);
 			ft_lstclear(&new_lst, del);
 			return (NULL);
 		}
