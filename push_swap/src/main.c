@@ -6,7 +6,7 @@
 /*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/16 13:11:24 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/12/17 11:30:31 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/12/22 22:33:07 by ael-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,17 @@
 // Initialize stack from arguments
 t_list	*init(char **ag)
 {
-	t_list	*res;
-	t_list	*tmp;
-	int		n;
-	int		i;
+	t_list		*res;
+	t_list		*tmp;
+	long int	n;
+	int			i;
 
 	i = 0;
 	res = NULL;
 	while (ag[i])
 	{
 		n = ft_atoi(ag[i]);
-		if (!check(res, n, ag[i]))
+		if (!check(res, n, ag[i]) || n < -2147483648 || n > 2147483647)
 			return (init_error(res));
 		tmp = ft_lstnew(n);
 		ft_lstadd_back(&res, tmp);
@@ -54,6 +54,8 @@ int	main(int ac, char **ag)
 	add_index(tab->stack_a);
 	choose_sort(tab);
 	ft_free_split(args);
+	ft_lstclear(&tab->stack_a);
+	ft_lstclear(&tab->stack_b);
 	free(tab);
 	return (0);
 }
