@@ -6,13 +6,13 @@
 /*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/13 17:05:25 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/12/16 16:46:05 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/12/22 22:11:53 by ael-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_lstclear(t_list **lst, void (*del)(int))
+void	ft_lstclear(t_list **lst)
 {
 	t_list	*tmp;
 
@@ -21,7 +21,6 @@ void	ft_lstclear(t_list **lst, void (*del)(int))
 	while (*lst)
 	{
 		tmp = (*lst)->next;
-		del((*lst)->content);
 		free(*lst);
 		*lst = tmp;
 	}

@@ -6,7 +6,7 @@
 /*   By: ael-bakk <ael-bakk@student.42malaga.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 14:38:08 by ael-bakk          #+#    #+#             */
-/*   Updated: 2025/12/16 17:03:52 by ael-bakk         ###   ########.fr       */
+/*   Updated: 2025/12/22 22:34:07 by ael-bakk         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,12 +40,12 @@ int		ft_lstsize(t_list *lst);
 t_list	*ft_lstlast(t_list *lst);
 void	ft_lstadd_back(t_list **lst, t_list *new);
 void	ft_lstdelone(t_list *lst, void (*del)(int));
-void	ft_lstclear(t_list **lst, void (*del)(int));
+void	ft_lstclear(t_list **lst);
 void	ft_striteri(char *s, void (*f)(unsigned int, char *));
 char	*ft_strmapi(const char *s, char (*f)(unsigned int, char));
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 char	*ft_strtrim(char const *s1, char const *set);
-int		ft_atoi(const char *str);
+long	ft_atoi(const char *str);
 void	ft_bzero(void *s, size_t n);
 void	*ft_calloc(size_t count, size_t size);
 int		ft_isalnum(int i);
