@@ -1,3 +1,15 @@
 [submodule "python_modules"]
 	path = python_modules
 	url = git@github.com:Mbakk007/42_python_modules.git
+[submodule "libft"]
+	path = libft
+	url = git@github.com:Mbakk007/42_libft.git
+[submodule "ft_printf"]
+	path = ft_printf
+	url = git@github.com:Mbakk007/42_ft_printf.git
+[submodule "push_swap"]
+	path = push_swap
+	url = git@github.com:Mbakk007/42_push_swap.git
+[submodule "GNL"]
+	path = GNL
+	url = git@github.com:Mbakk007/42_GNL.git
